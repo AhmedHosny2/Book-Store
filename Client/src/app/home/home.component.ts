@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
 import { Observable } from 'rxjs';
 // import { HttpClientModule } from '@angular/common/http';
-import { HttpClientModule } from '@angular/common/http';
+// import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-home',
@@ -18,13 +18,15 @@ export class HomeComponent implements OnInit {
   books: any[] = [];
   searchQuery: string = '';
   selectedAuthor: string = '';
-  uniqueAuthors: string[] = [];
+  uniqueAuthors: any[] = [];
 
   constructor(private bookService: BookService) {}
 
   ngOnInit(): void {
     this.fetchBooks();
-    this.uniqueAuthors = this.getUniqueAuthors(this.books);
+    this.fetchAuthors();
+    console.log(this.uniqueAuthors);
+    
   }
 
   fetchBooks(): void {
@@ -34,11 +36,20 @@ export class HomeComponent implements OnInit {
       
     });
   }
-
-  getUniqueAuthors(books: Book[]): string[] {
-    return this.bookService.getUniqueAuthors(books);
-
+  fetchAuthors(): void {
+    this.bookService.getUniqueAuthors().subscribe(data => {
+      this.uniqueAuthors = data;
+      console.log(this.uniqueAuthors);
+      
+    });
   }
+
+  // getUniqueAuthors(): any {
+  //   console.log('getUniqueAuthors');
+    
+  //   return this.bookService.getUniqueAuthors();
+
+  // }
 
   filteredBooks(): any[] {
     let filteredBooks = this.books;
@@ -52,10 +63,11 @@ export class HomeComponent implements OnInit {
 
     if (this.selectedAuthor) {
       filteredBooks = filteredBooks.filter(book =>
-        book.authorName === this.selectedAuthor
+        book.author_name === this.selectedAuthor
       );
     }
 
     return filteredBooks;
   }
+
 }

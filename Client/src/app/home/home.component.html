@@ -2,7 +2,7 @@
   <input type="text" [(ngModel)]="searchQuery" placeholder="Search books by title..." />
   <select [(ngModel)]="selectedAuthor">
     <option value="">All Authors</option>
-    <option *ngFor="let author of uniqueAuthors" [value]="author">{{ author }}</option>
+    <option *ngFor="let author of uniqueAuthors" [value]="author.name">{{ author.name }}</option>
   </select>
 </div>
 
@@ -15,7 +15,6 @@
       <div class="content">
         <div class="name">{{book.TITLE}}</div>
         <div class="author">{{book.author_name}}</div>
-        <!-- <div class="price">{{book.price}}</div> -->
       </div>
     </a>
   </li>

@@ -17,8 +17,8 @@ export class BookService {
     return this.http.get(`${this.apiUrl}/books`);
      
   }
-  getUniqueAuthors(books: Book[]): string[] {
-    const authors = books.map((book) => book.authorName); 
-    return Array.from(new Set(authors)).sort();
+  getUniqueAuthors():  Observable<any> {
+    console.log(`${this.apiUrl}/authors`);
+  return this.http.get(`${this.apiUrl}/authors`);
   }
 }

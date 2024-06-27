@@ -10,6 +10,7 @@ exports.addAuthor = async (req, res) => {
 // get all authors
 exports.getAuthors = async (req, res) => {
     const authors = await authorModel.getAuthors();
+    console.log(authors);
     res.status(200).json(authors);
 }
 
