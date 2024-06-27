@@ -1,0 +1,14 @@
+<ul>
+    <li *ngFor="let book of books">
+        <a>
+            <div class="image-container">
+                <img [src]="book.cover" alt="">
+            </div>
+            <div class="content">
+                <div class="name">{{book.title}}</div>
+                <div class="author">{{book.author}}</div>
+                <div class="price">{{book.price }}</div>
+            </div>
+        </a>
+    </li>
+</ul>

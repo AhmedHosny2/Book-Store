@@ -1,0 +1,59 @@
+ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 0.5rem;
+}
+
+ul li a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none; /* Ensure links do not have underlines */
+    width: 20rem;
+    border: 1px solid whitesmoke;
+    border-radius: 1rem;
+    overflow: hidden;
+    color: #e72929;
+}
+
+ul li a:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.image-container {
+    height: 22.5rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.content {
+    padding: 0.5rem;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.author {
+    margin-bottom: 0.3rem;
+}
+
+.price {
+    color: #414141;
+    font-size: 1rem;
+    margin-top: 0.3rem;
+}
