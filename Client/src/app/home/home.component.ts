@@ -3,7 +3,10 @@ import { BookService } from '../services/book/book.service';
 import { Book } from '../shared/models/Book';
 import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
-
+import { Observable } from 'rxjs';
+// import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -12,7 +15,7 @@ import { NgFor } from '@angular/common';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  books: Book[] = [];
+  books: any[] = [];
   searchQuery: string = '';
   selectedAuthor: string = '';
   uniqueAuthors: string[] = [];
@@ -20,12 +23,16 @@ export class HomeComponent implements OnInit {
   constructor(private bookService: BookService) {}
 
   ngOnInit(): void {
-    this.books = this.getBooks();
+    this.fetchBooks();
     this.uniqueAuthors = this.getUniqueAuthors(this.books);
   }
 
-  getBooks(): Book[] {
-    return this.bookService.getBooks();
+  fetchBooks(): void {
+    this.bookService.getBooks().subscribe(data => {
+      this.books = data;
+      console.log(this.books);
+      
+    });
   }
 
   getUniqueAuthors(books: Book[]): string[] {
@@ -33,13 +40,13 @@ export class HomeComponent implements OnInit {
 
   }
 
-  filteredBooks(): Book[] {
+  filteredBooks(): any[] {
     let filteredBooks = this.books;
 
     if (this.searchQuery) {
       const query = this.searchQuery.toLowerCase();
       filteredBooks = filteredBooks.filter(book =>
-        book.title.toLowerCase().includes(query)
+        book.TITLE.toLowerCase().includes(query)
       );
     }
 

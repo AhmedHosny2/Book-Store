@@ -6,8 +6,9 @@ async function getBooks() {
     return data;
 }
 
-async function addBook(title, description, author_id) {
-    const [data] = await pool.query('INSERT INTO book (title, description, author_id) VALUES (?, ?, ?)', [title, description, author_id]);
+async function addBook(title, description, author_id,cover, author_name, author_email) {
+    console.log('author_id:', author_id, 'author_name:', author_name, 'author_email:', author_email);
+    const [data] = await pool.query('INSERT INTO book (title, description, author_id, cover, author_name, author_email) VALUES (?, ?, ?, ?, ?, ?)', [title, description, author_id,cover, author_name, author_email]);
     return data;
 }
 
