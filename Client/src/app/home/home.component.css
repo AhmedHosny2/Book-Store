@@ -1,3 +1,27 @@
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.search-container input[type="text"] {
+    width: 20rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+.search-container select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    width: 12rem;
+}
+
 ul {
     display: flex;
     justify-content: center;
@@ -14,7 +38,7 @@ ul li {
 ul li a {
     display: flex;
     flex-direction: column;
-    text-decoration: none; /* Ensure links do not have underlines */
+    text-decoration: none;
     width: 20rem;
     border: 1px solid whitesmoke;
     border-radius: 1rem;

@@ -1,14 +1,22 @@
+<div class="search-container">
+  <input type="text" [(ngModel)]="searchQuery" placeholder="Search books by title..." />
+  <select [(ngModel)]="selectedAuthor">
+    <option value="">All Authors</option>
+    <option *ngFor="let author of uniqueAuthors" [value]="author">{{ author }}</option>
+  </select>
+</div>
+
 <ul>
-    <li *ngFor="let book of books">
-        <a>
-            <div class="image-container">
-                <img [src]="book.cover" alt="">
-            </div>
-            <div class="content">
-                <div class="name">{{book.title}}</div>
-                <div class="author">{{book.author}}</div>
-                <div class="price">{{book.price }}</div>
-            </div>
-        </a>
-    </li>
+  <li *ngFor="let book of filteredBooks()">
+    <a>
+      <div class="image-container">
+        <img [src]="book.cover" alt="">
+      </div>
+      <div class="content">
+        <div class="name">{{book.title}}</div>
+        <div class="author">{{book.authorName}}</div>
+        <div class="price">{{book.price}}</div>
+      </div>
+    </a>
+  </li>
 </ul>
