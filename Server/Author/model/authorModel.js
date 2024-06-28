@@ -35,7 +35,11 @@ async function deleteAuthor(id) {
 }
 async function getAuthor(id) {
     const [author] = await pool.query('SELECT * FROM author WHERE id = ?', [id]);
+  const   books  = await getBooksByAuthorId(author[0].id);
+    // console.log(author[0].id);
+    author[0].books = books;
     console.log(author);
+    // console.log(author);
     return author;
 }
 

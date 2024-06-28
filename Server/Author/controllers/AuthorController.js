@@ -13,6 +13,12 @@ exports.getAuthors = async (req, res) => {
     console.log(authors);
     res.status(200).json(authors);
 }
+// get author by id
+exports.getAuthor = async (req, res) => {
+    const { id } = req.params;
+    const author = await authorModel.getAuthor(id);
+    res.status(200).json(author);
+}
 
 // delete author
 exports.deleteAuthor = async (req, res) => {
