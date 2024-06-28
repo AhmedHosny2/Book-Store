@@ -1,10 +1,10 @@
-<p>Authors works!</p>
+
 <div class="authors-container">
   <h1>Authors</h1>
 
   <div class="authors-list">
     <div *ngFor="let author of paginatedAuthors" class="author-card">
-      <div class="author-info">
+      <div class="author-info" (click)="navigateToauthorDetail(author.id)">
         <h2>{{ author.name }}</h2>
         <p>{{ author.bio }}</p>
         <p>{{ author.email }}</p>

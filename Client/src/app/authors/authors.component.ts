@@ -42,7 +42,10 @@ export class AuthorsComponent  implements OnInit{
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     return this.authors.slice(startIndex, startIndex + this.itemsPerPage);
   }
-
+  navigateToauthorDetail = (id: number) => {
+    this.router.navigate(['/author', id]);
+  }
+  
   // Function to handle changing the current page
   onPageChange(pageNumber: number) {
     this.currentPage = pageNumber;
