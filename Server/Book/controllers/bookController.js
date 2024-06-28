@@ -55,10 +55,23 @@ async function deleteBook(req, res) {
         res.status(500).json({ message: 'Internal server error' });
     }
 }
+async  function updateBook(req, res) {
+    try {
+       
+        const { title, description, author_id,cover,id } = req.body;
+        console.log( 'cover:', cover, 'id:', id);
+        const data = await bookModel.updateBook (title, description, author_id, cover, id);
+        res.status(200).json({ message: 'Book updated successfully', data });
+    } catch (err) {
+        console.error('Error updating book:', err);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+}
 
 module.exports = {
     getBooks,
     addBook,
     deleteBook,
-    getBook
+    getBook,
+    updateBook
 };

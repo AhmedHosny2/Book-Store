@@ -1,1 +1,52 @@
-<p>author-details works!</p>
+<div class="author-container">
+  <div class="author-details">
+    <h2>{{ author.name }}</h2>
+    <p>{{ author.bio }}</p>
+    <p>Email: {{ author.email }}</p>
+
+    <h3>Books Written</h3>
+    <div *ngFor="let book of author.books; let i = index" class="book-card">
+      <div class="book-details">
+        <img [src]="book.cover" alt="{{ book.title }} cover" />
+        <div>
+          <h4>{{ book.title }}</h4>
+          <p>{{ book.description }}</p>
+        </div>
+      </div>
+      <div class="book-actions">
+        <button (click)="editBook(book)">Edit</button>
+        <button (click)="deleteBook(book.id)">Delete</button>
+      </div>
+
+      <!-- Edit Book Form -->
+      <div *ngIf="editingBook === book.id" class="edit-book-form">
+        <h3>Edit Book</h3>
+        <form (submit)="saveBook(book)">
+          <label>Title:</label>
+          <input type="text" [(ngModel)]="book.title" name="title" required />
+
+          <label>Description:</label>
+          <textarea
+            [(ngModel)]="book.description"
+            name="description"
+            required
+          ></textarea>
+
+          <label>Author ID:</label>
+          <input
+            type="number"
+            [(ngModel)]="book.author_id"
+            name="author_id"
+            disabled="disabled"
+          />
+
+          <label>Cover URL:</label>
+          <input type="text" [(ngModel)]="book.cover" name="cover" required />
+
+          <button type="submit">Save</button>
+          <button type="button" (click)="cancelEdit()">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

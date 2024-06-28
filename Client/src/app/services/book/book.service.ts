@@ -25,7 +25,7 @@ export class BookService {
     console.log('deleteBook');
     return this.http.delete(`${this.apiUrl}/books/${id}`);
   }
-  
+
   getBookById(id: Number): Observable<any> {
     console.log('getBookById');
     return this.http.get(`${this.apiUrl}/books/${id}`);
@@ -33,5 +33,10 @@ export class BookService {
   
   getUniqueAuthors():  Observable<any> {
   return this.http.get(`${this.apiUrl}/authors`);
+  }
+  updateBook( updatedBook: any): Observable<any> {
+    console.log('updateBook');
+    return this.http.put(`${this.apiUrl}/books`, updatedBook);
+
   }
 }

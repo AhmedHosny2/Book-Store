@@ -1,0 +1,96 @@
+/* Author Details Container */
+.author-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Book Card */
+  .book-card {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+  }
+  
+  .book-card img {
+    max-width: 100px;
+    height: auto;
+    margin-right: 15px;
+    border-radius: 5px;
+  }
+  
+  .book-details {
+    display: flex;
+    align-items: center;
+  }
+  
+  .book-actions {
+    margin-top: 10px;
+  }
+  
+  .book-actions button {
+    margin-right: 10px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .book-actions button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Edit Book Form */
+  .edit-book-form {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .edit-book-form h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+  }
+  
+  .edit-book-form form {
+    display: grid;
+    gap: 10px;
+  }
+  
+  .edit-book-form label {
+    font-weight: bold;
+  }
+  
+  .edit-book-form input[type="text"],
+  .edit-book-form input[type="number"],
+  .edit-book-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .edit-book-form button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  .edit-book-form button:hover {
+    background-color: #218838;
+  }
+  
