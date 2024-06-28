@@ -4,6 +4,8 @@ import { Book } from '../shared/models/Book';
 import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+
 // import { HttpClientModule } from '@angular/common/http';
 // import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
@@ -16,11 +18,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
   books: any[] = [];
+
   searchQuery: string = '';
   selectedAuthor: string = '';
   uniqueAuthors: any[] = [];
 
-  constructor(private bookService: BookService) {}
+  constructor(private router: Router,private bookService: BookService) {}
 
   ngOnInit(): void {
     this.fetchBooks();
@@ -28,7 +31,9 @@ export class HomeComponent implements OnInit {
     console.log(this.uniqueAuthors);
     
   }
-
+  navigateToBookDetail = (id: number) => {
+    this.router.navigate(['/book', id]);
+  }
   fetchBooks(): void {
     this.bookService.getBooks().subscribe(data => {
       this.books = data;

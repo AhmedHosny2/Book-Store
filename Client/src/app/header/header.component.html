@@ -1,10 +1,8 @@
 <header>
-    <div class="container">
-      <a href="#" routerLink="/" class="logo">Books</a>
-      <nav>
-        <ul>
-          <li><a href="#" routerLink="/cart-page">Authors</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <div class="container">
+    <nav>
+      <button (click)="navigateToHome()">Home</button>
+      <button (click)="navigateToAuthors()">Authors</button>
+    </nav>
+  </div>
+</header>

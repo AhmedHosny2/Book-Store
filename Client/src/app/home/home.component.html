@@ -10,7 +10,7 @@
   <li *ngFor="let book of filteredBooks()">
     <a>
       <div class="image-container">
-        <img [src]="book.cover" alt="">
+        <img [src]="book.cover" alt="" (click)="navigateToBookDetail(book.id)">
       </div>
       <div class="content">
         <div class="name">{{ book.title }}</div>

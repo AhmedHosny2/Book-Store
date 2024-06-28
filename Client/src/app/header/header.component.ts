@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,5 +10,18 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  constructor(private router: Router, @Inject(DOCUMENT) private document: Document) {}
 
+  navigateToBooks() {
+    this.router.navigate(['/books']);
+  }
+
+
+  navigateToAuthors() {
+    this.router.navigate(['/authors']);
+  }
+  navigateToHome() {
+    this.router.navigate(['/']);
+  }
+  
 }
