@@ -1,0 +1,14 @@
+<div class="book-container">
+  <div class="book-cover">
+    <img [src]="book?.cover || 'default-cover.jpg'" alt="{{ book?.title || 'Default Title' }} cover">
+  </div>
+  <div class="book-details">
+    <h1>{{ book?.title || 'Default Title' }}</h1>
+    <p class="description">{{ book?.description || 'Default description' }}</p>
+    <div class="author-info">
+      <h2>Author: {{ book?.author.name || 'Default Author' }}</h2>
+      <p class="bio">{{ book?.author.bio || 'Default bio' }}</p>
+      <p class="email">{{ book?.author.email || 'Default email' }}</p>
+    </div>
+  </div>
+</div>

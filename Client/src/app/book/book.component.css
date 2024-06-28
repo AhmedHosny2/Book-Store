@@ -1,0 +1,54 @@
+.book-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .book-cover img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  
+  .book-details {
+    flex: 1;
+  }
+  
+  .book-details h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+  
+  .description {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .author-info {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+  }
+  
+  .author-info h2 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+  }
+  
+  .author-info .bio {
+    font-size: 1em;
+    color: #777;
+    margin-bottom: 10px;
+  }
+  
+  .author-info .email {
+    font-size: 0.9em;
+    color: #333;
+  }
+  

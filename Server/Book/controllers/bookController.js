@@ -16,6 +16,17 @@ async function getBooks(req, res) {
         res.status(500).json({ message: 'Internal server error' });
     }
 }
+async function getBook(req, res) {
+    try {
+        console.log('req.params:', req.params);
+        const { id } = req.params;
+        const data = await bookModel.getBook(id);
+        res.status(200).json(data);
+    } catch (err) {
+        console.error('Error retrieving book:', err);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+}
 
 async function addBook(req, res) {
     try {
@@ -25,7 +36,7 @@ async function addBook(req, res) {
         // get author name and email and add it to the book
         const author = await getAuthor(author_id);
             console.log(author);
-        const data = await bookModel.addBook(title, description, author_id,cover, author[0].name, author[0].email);
+        const data = await bookModel.addBook(title, description, author_id,cover);
         console.log(data);
         res.status(201).json({ message: 'Book added successfully', data });
     } catch (err) {
@@ -48,5 +59,6 @@ async function deleteBook(req, res) {
 module.exports = {
     getBooks,
     addBook,
-    deleteBook
+    deleteBook,
+    getBook
 };

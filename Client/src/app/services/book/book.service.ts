@@ -17,8 +17,12 @@ export class BookService {
     return this.http.get(`${this.apiUrl}/books`);
      
   }
+  getBookById(id: Number): Observable<any> {
+    console.log('getBookById');
+    return this.http.get(`${this.apiUrl}/books/${id}`);
+  }
+  
   getUniqueAuthors():  Observable<any> {
-    console.log(`${this.apiUrl}/authors`);
   return this.http.get(`${this.apiUrl}/authors`);
   }
 }
