@@ -1,0 +1,41 @@
+<p>Authors works!</p>
+<div class="authors-container">
+  <h1>Authors</h1>
+
+  <div class="authors-list">
+    <div *ngFor="let author of paginatedAuthors" class="author-card">
+      <div class="author-info">
+        <h2>{{ author.name }}</h2>
+        <p>{{ author.bio }}</p>
+        <p>{{ author.email }}</p>
+      </div>
+
+      <!-- Display the first book and indicate if there are more -->
+      <div class="books-section">
+        <h3>Featured Book</h3>
+        <div class="book-card" >
+          <div class="book-cover">
+            <img [src]="author.books[0].cover" alt="{{ author.books[0].title }} cover">
+          </div>
+          <div class="book-details">
+            <h4>{{ author.books[0].title }}</h4>
+            <p class="book-description">{{ author.books[0].description }}</p>
+          </div>
+        </div>
+
+        <!-- Display "+ X more" if there are additional books -->
+        <div *ngIf="author.books.length > 1" class="more-books">
+          <p>+ {{ author.books.length - 1 }} more</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination controls (if needed) -->
+  <!--
+  <div class="pagination">
+    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+    <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage * itemsPerPage >= authors.length">Next</button>
+  </div>
+  -->
+</div>
