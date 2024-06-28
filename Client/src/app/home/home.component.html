@@ -10,11 +10,11 @@
   <li *ngFor="let book of filteredBooks()">
     <a>
       <div class="image-container">
-        <img [src]="book.COVER" alt="">
+        <img [src]="book.cover" alt="">
       </div>
       <div class="content">
-        <div class="name">{{book.TITLE}}</div>
-        <div class="author">{{book.author_name}}</div>
+        <div class="name">{{ book.title }}</div>
+        <div class="author">{{ book.author.name }}</div>
       </div>
     </a>
   </li>

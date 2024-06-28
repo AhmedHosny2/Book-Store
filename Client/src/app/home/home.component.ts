@@ -44,30 +44,22 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  // getUniqueAuthors(): any {
-  //   console.log('getUniqueAuthors');
-    
-  //   return this.bookService.getUniqueAuthors();
-
-  // }
-
   filteredBooks(): any[] {
     let filteredBooks = this.books;
 
     if (this.searchQuery) {
       const query = this.searchQuery.toLowerCase();
       filteredBooks = filteredBooks.filter(book =>
-        book.TITLE.toLowerCase().includes(query)
+        book.title.toLowerCase().includes(query)
       );
     }
 
     if (this.selectedAuthor) {
       filteredBooks = filteredBooks.filter(book =>
-        book.author_name === this.selectedAuthor
+        book.author.name === this.selectedAuthor
       );
     }
 
     return filteredBooks;
   }
-
 }

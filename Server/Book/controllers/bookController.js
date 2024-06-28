@@ -9,7 +9,12 @@ async function getAuthor(author_id) {
 
 async function getBooks(req, res) {
     try {
-        const data = await bookModel.getBooks();
+        let data = await bookModel.getBooks();
+        // add authors 
+        for (let i = 0; i < data.length; i++) {
+            const author = await getAuthor(data[i].author_id);
+            data[i].author = author[0];
+        }
         res.status(200).json(data);
     } catch (err) {
         console.error('Error retrieving books:', err);

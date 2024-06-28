@@ -18,11 +18,12 @@ import { NgFor,NgIf } from '@angular/common';
   styleUrls: ['./author-details.component.css']
 })
 export class AuthorDetailsComponent implements OnInit {
-  author: any;
+
   editingBook: number | null = null; // Track which book is being edited
 
   bookFormVisible: boolean = false;
   book: any = { title: '', description: '', authorId: null, cover :'' }; // Adjust as per your book schema
+  author: any = { id: 0, name: '', email: '', bio: '', books: '' }; // Assuming Author model structure
 
   constructor(private route: ActivatedRoute, private authorService: AuthorService, private bookService: BookService) {}
 
